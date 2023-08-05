@@ -31,7 +31,7 @@ app.get(
 
 if (process.env.NODE_ENV === "production") {
     const __dirname = path.resolve();
-    app.use(express.static(path.join(__dirname, "..", "frontend", "dist")));
+    app.use(express.static(path.join(__dirname, "frontend", "dist")));
     app.get("/", (_req, res, next) => {
         res.sendFile(
             path.join(__dirname, "..", "frontend", "dist", "index.html")
