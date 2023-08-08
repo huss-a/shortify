@@ -13,11 +13,12 @@ connectDB();
 const app = express();
 
 const PORT = process.env.PORT || 5000;
+const corsOptions = { origin: process.env.ORIGIN! };
 
-app.use(cors({ origin: [process.env.ORIGIN!] }));
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/api", apiRoutes);
+app.use("/api", cors(corsOptions), apiRoutes);
 
 app.get(
     "/:urlUid",
