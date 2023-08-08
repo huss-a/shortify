@@ -30,6 +30,8 @@ app.get(
     })
 );
 
+app.get("/", (_req, res) => res.redirect(process.env.ORIGIN!));
+
 app.use(notFound);
 app.use(errorHandler);
 
