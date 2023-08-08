@@ -12,7 +12,7 @@
     "dev": "concurrently \"npm run build:dev\" \"npm run watch\""
   },
   "keywords": [],
-  "author": "",
+  "author": "Hussain Akil",
   "license": "ISC",
   "devDependencies": {
     "@types/cors": "^2.8.13",
