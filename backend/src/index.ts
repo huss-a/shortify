@@ -5,7 +5,7 @@ import connectDB from "./util/db";
 import { errorHandler, notFound } from "./middleware/errorMiddleware";
 import asyncHandler from "express-async-handler";
 import UrlRecord from "./models/urlModel";
-import path from "path";
+import cors from "cors";
 
 dotenv.config();
 
@@ -14,6 +14,7 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
+app.use(cors({ origin: [process.env.ORIGIN!] }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api", apiRoutes);
