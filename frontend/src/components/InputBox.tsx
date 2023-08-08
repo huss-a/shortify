@@ -18,7 +18,7 @@ const InputBox = () => {
         if (urlToShorten) {
             setIsLoading(true);
             const res = await axios
-                .post("http://localhost:5000/api/shorten", {
+                .post(`${import.meta.env.VITE_SERVER_URL}`, {
                     url: urlToShorten,
                 })
                 .catch(err => {
@@ -26,7 +26,7 @@ const InputBox = () => {
                     setIsLoading(false);
                 });
             const urlUid: string = res!.data.urlUid;
-            setLink(`http://localhost:5000/${urlUid}`);
+            setLink(`${import.meta.env.VITE_SERVER_URL}/${urlUid}`);
             setIsLoading(false);
         }
     };
