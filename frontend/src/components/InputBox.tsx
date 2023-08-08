@@ -18,7 +18,7 @@ const InputBox = () => {
         if (urlToShorten) {
             setIsLoading(true);
             const res = await axios
-                .post(`${import.meta.env.VITE_SERVER_URL}`, {
+                .post(`${import.meta.env.VITE_SERVER_URL}/shorten`, {
                     url: urlToShorten,
                 })
                 .catch(err => {
